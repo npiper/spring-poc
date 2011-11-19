@@ -1,0 +1,15 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cgu.icc</groupId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>parent</module>
+		<module>interface</module>
+		<module>policy.inquiry</module>
+	</modules>
+
+
+	<artifactId>service</artifactId>
+</project>

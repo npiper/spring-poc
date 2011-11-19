@@ -1,0 +1,39 @@
+We trust DXSI to do dependency management, packaging correctly
+therefore the parent 'package' for all DXSI dependent libraries will be
+"model.cgu.dxsi"
+ -- commons-beanutils.pom
+ -- commons-beanutils.jar
+ -- $parent-version
+
+Use the model.cgu.dxsi parent version as the control (Snapshot?)
+
+RISK: Duplicate or conflicting usage of an open source library in projects
+MITIGATION 1: Maintain Maven records? (Effort?, Upkeep?) < 20 dependencies, how often changing?
+MITIGATION 2: Maintain Master list, strict approval process for Open Source library usage in team
+
+Team Edits in DXSI
+Unpack DXSI Output.zip
+
+-- Possibility of Auto-generation of Documentation / Model on publish
+-- 
+
+
+For each *.jar
+Create Folder $name.jar
+
+Modify template pom.xml
+<name>$name</name>
+
+Copy .jar file to relevant POM location
+Push to Maven Repository?
+
+Cleanup, unpack?
+
+Parent POM - version, snapshot
+
+Update POM.xml dependencies
+
+Possible changes:
+* DXSI version changes
+
+SVN Commit based on changes, udates?

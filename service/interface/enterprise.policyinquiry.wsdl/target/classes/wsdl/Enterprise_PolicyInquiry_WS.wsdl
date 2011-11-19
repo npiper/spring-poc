@@ -1,0 +1,3936 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="PolicyInquiry" targetNamespace="http://cgu/enterprise/policyinquiry/v1" xmlns:bons1="http://cgu/common/fault/business/v1" xmlns:bons3="http://cgu/common/fault/technical/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://cgu/enterprise/policyinquiry/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://cgu/enterprise/policyinquiry/v1" xmlns:bons="http://cgu/common/fault/business/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://cgu/common/fault/business/v1"/>
+            <xsd:import namespace="http://cgu/common/fault/technical/v1"/>
+      <xsd:element name="retrieveInsurancePolicies">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveInsurancePoliciesRequest" nillable="true" type="tns:RetrieveInsurancePoliciesRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveInsurancePoliciesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveInsurancePoliciesResponse" nillable="true" type="tns:RetrieveInsurancePoliciesResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="runtimeFault" nillable="true" type="bons3:RuntimeFault"/>
+      <xsd:element name="providerUnavailableFault" nillable="true" type="bons1:ProviderUnavailableFault"/>
+            <xsd:element name="invalidConsumerFault" nillable="true" type="bons1:InvalidConsumerFault"/>
+            <xsd:element name="retrieveInsurancePoliciesFault4_insufficientSearchCriteriaFault" nillable="true" type="bons1:InsufficientSearchCriteriaFault"/>
+            <xsd:element name="retrievePolicyDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrievePolicyDetailsParameters" nillable="true" type="tns:RetrievePolicyDetailsRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="retrievePolicyDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrievePolicyDetailsResult" nillable="true" type="tns:RetrievePolicyDetailsResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="retrievePolicyDetailsFault1_runtimeFault" nillable="true" type="bons3:RuntimeFault"/>
+            <xsd:element name="retrievePolicyDetailsFault2_providerUnavailableFault" nillable="true" type="bons:ProviderUnavailableFault"/>
+            <xsd:element name="retrievePolicyDetailsFault3_invalidConsumerFault" nillable="true" type="bons:InvalidConsumerFault"/>
+            <xsd:element name="retrievePolicyDetailsFault4_invalidPolicyNumberFault" nillable="true" type="bons:InvalidPolicyNumberFault"/>
+            <xsd:element name="retrievePolicyDetailsFault5_insufficientSearchCriteriaFault" nillable="true" type="bons:InsufficientSearchCriteriaFault"/>
+        <xs:complexType name="StructuredAddressDetailsSearchCriteria">
+      <xs:annotation>
+         <xs:documentation>
+            Describes the structured address
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:AddressDetailsSearchCriteria">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="FlatUnitNumber" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        Flat or Unit number
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="BuildingPropertyName1" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        Building name 1
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="HouseNumber1" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        House number 1
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StreetName" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address street name.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StreetType" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address street type, eg. |Street|Road|Avenue|Place|Close, etc..
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="SuburbPlaceLocality" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address suburb.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StateTerritory" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address state.
+                        Valid Values: |Vic|SA|NT|ACT|QLD|TAS|NSW|WA
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Country" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address country name, eg. Australia
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Postcode" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The address postcode.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DeliveryPoint" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The unique delivery point ID per address.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PropertyNoClaimBonusEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="House"/>
+         <xs:enumeration value="HouseAndContents"/>
+         <xs:enumeration value="Other"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PolicyExcess">
+      <xs:complexContent>
+         <xs:extension base="tns:Excess">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PolicyExcessTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Basic |Imposed |Age| Compulsory |Special|Other
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Tax">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="TaxType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg Stamp Duty, GST, FSL
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The dollar Tax amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="TaxExempt" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+True/False
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="RiskIdentifier">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Identifier">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values:
+VehicleRegistration|VIN
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="RiskAddress"/>
+                  <xs:enumeration value="VehicleRegistration"/>
+                  <xs:enumeration value="VIN"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+A string containing the Registration or the VIN depending on the IdentifierType
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="Claim">
+      <xs:sequence>
+         <xs:element name="CauseOfLoss" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg description of the loss
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="AmountPaid" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+Amount paid thus far
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="AmountOutstanding" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+Amount left to pay.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string"/>
+         <xs:element minOccurs="0" name="LossDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+The date and time the claim occurred
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="InstalmentAmount">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="InstalmentCharges" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The total charges for the instalment
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InstalmentTaxes" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The total taxes for the instalment
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InstalmentCommission" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The total commission for the instalment
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InstalmentBasePremium" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The base premium for the Instalment
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="PartyStatusValueEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Active"/>
+         <xs:enumeration value="Cancelled"/>
+         <xs:enumeration value="Inactive"/>
+         <xs:enumeration value="RunOff"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="LegalQuestion">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="tns:LegalQuestionsEnum">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values
+|DutyOfDisclosure|PrivacyStatement
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+True/False
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Details" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Comments on QuestionValue
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="OrganisationNameSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:GenericPartyNameSearchCriteria">
+            <xs:sequence>
+               <xs:element default="ExactMatch" minOccurs="0" name="SearchType" type="tns:SearchTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+                        Valid values: |BeginsWith|ContainsWord|ExactMatch
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Name" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The party name
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Type" type="tns:OrganisationNameTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+                        Valid Values:
+                        Main|TradingName|Other|Registered
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="AgeExcessDescriptionEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="InexperiencedDrives"/>
+         <xs:enumeration value="NineteenToUnderTwentyOne"/>
+         <xs:enumeration value="TwentyFiveAndOlder"/>
+         <xs:enumeration value="TwentyOneToUnderTwentyFive"/>
+         <xs:enumeration value="TwentyToUnderTwentyTwo"/>
+         <xs:enumeration value="TwentyTwoToUnderTwentyFive"/>
+         <xs:enumeration value="UnderNineteen"/>
+         <xs:enumeration value="UnderTwenty"/>
+         <xs:enumeration value="UnderTwentyOne"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="SearchTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BeginsWith"/>
+         <xs:enumeration value="ContainsValue"/>
+         <xs:enumeration value="ExactMatch"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="CoverageFinancials">
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Charges" type="tns:Charge"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Commission" type="tns:Commission"/>
+         <xs:element minOccurs="0" name="Premium" type="tns:Premium"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Taxes" type="tns:Tax"/>
+         <xs:element minOccurs="0" name="Currency" type="tns:Currency"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PersonalAccidentCoverage">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PersonalAccidentTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PersonalAccidentExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PropertyExcessTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Basic"/>
+         <xs:enumeration value="Compulsory"/>
+         <xs:enumeration value="Imposed"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Special"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="EnterpriseDateTime">
+      <xs:sequence>
+         <xs:element name="Date" type="xs:date"/>
+         <xs:element minOccurs="0" name="Time" type="xs:date"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="BuildingCoverageExtensionsEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AccidentalDamage"/>
+         <xs:enumeration value="Flood"/>
+         <xs:enumeration value="Fusion"/>
+         <xs:enumeration value="HomeOffice"/>
+         <xs:enumeration value="MortgageIndemnity"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Pets"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="UnstructuredAddressDetails">
+      <xs:annotation>
+         <xs:documentation>
+Unstructured Address Details
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:AddressDetails">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="FullAddress" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Full Unstructured Address
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="ParentOrganisationRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="AccountingPeriod" type="xs:string"/>
+               <xs:element minOccurs="0" name="DistributionChannel" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The distribution channel (IAG reference)
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DistributionType" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The distribution type (IAG reference)
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DistributionGroup" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The distribution group (IAG reference)
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="VehicleComponent">
+      <xs:annotation>
+         <xs:documentation>
+Describes each individual Vehicle component on the policy
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Component">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="VehicleCoverageType" type="tns:VehicleCoverageTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Vehicle Coverage Description (Major Peril Description)
+
+Valid Values: Comprehensive|TPFT|TPPD|Contents|Fleet|AsPerSchedule|Caravan|CaravanAnnexe|Contents|MarineHull
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:VehicleExcess">
+                  <xs:annotation>
+                     <xs:documentation>
+Describes the excesses applicable at the VehicleComponent level
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Driver" type="tns:Driver">
+                  <xs:annotation>
+                     <xs:documentation>
+Holds the driver details for the vehicle component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Vehicle" type="tns:Vehicle">
+                  <xs:annotation>
+                     <xs:documentation>
+Holds all vehicles for the component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="IndustryLevelTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Class"/>
+         <xs:enumeration value="Division"/>
+         <xs:enumeration value="SubDivision"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="LiabilityComponent">
+      <xs:annotation>
+         <xs:documentation>
+This component will hold any liability coverages for a policy.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Component">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:LiabilityExcess"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="NoClaimBonus" type="tns:PropertyNoClaimBonus"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Coverage" type="tns:LiabilityCoverage">
+                  <xs:annotation>
+                     <xs:documentation>
+Coverage details for the Liability Component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="CoverageExtensions" type="tns:LiabilityCoverageExtensions"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Indicator" type="tns:LiabilityIndicator"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PartyRoleTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AccountManager"/>
+         <xs:enumeration value="AdditionalInsured"/>
+         <xs:enumeration value="AffiliationGroup"/>
+         <xs:enumeration value="Branch"/>
+         <xs:enumeration value="Insured"/>
+         <xs:enumeration value="Intermediary"/>
+         <xs:enumeration value="IntermediaryContact"/>
+         <xs:enumeration value="JointPolicyholder"/>
+         <xs:enumeration value="ParentOrganisation"/>
+         <xs:enumeration value="Policyholder"/>
+         <xs:enumeration value="PreviousInsurer"/>
+         <xs:enumeration value="Underwriter"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType abstract="true" name="Coverage">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CoverageCode" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The Coverage Code or Major Peril
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SumInsured" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+The sum insured for the coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The coverage description
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CoverageFinancials" type="tns:CoverageFinancials">
+            <xs:annotation>
+               <xs:documentation>
+The Coverage Financials
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="IntermediaryRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ProfitCentre" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Allows the intermediary to be rolled up to Profit Centre level
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="IntermediaryAgreement" type="tns:IntermediaryAgreement"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="VehicleIndicator">
+      <xs:complexContent>
+         <xs:extension base="tns:Indicator">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:VehicleExtensionTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:VehicleExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="AddressDetailsSearchCriteria">
+   </xs:complexType>
+      <xs:complexType abstract="true" name="AddressDetails">
+   </xs:complexType>
+      <xs:complexType name="PartyStatusSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:StatusSearchCriteria">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="value" type="tns:PartyStatusValueEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Driver">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="DriverType">
+            <xs:annotation>
+               <xs:documentation>
+A number of different people can be drivers of the vehicle as per the policy.  
+Valid Values: Primary |Co-Owner| Nominated|
+Note: There can only be one Primary Owner and one Co-Owner.  There can be multiple of the type ‘Nominated’
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Nominated"/>
+                  <xs:enumeration value="Primary"/>
+                  <xs:enumeration value="Co-Owner"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="DriverDetailsText" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Free format field representing any generic details relating to the driver
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Gender" type="tns:GenderEnum">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Male | Female
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="YearsDrivingExperience" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Years of driving experience for the Driver
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="NumberOfAtFaultClaims" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Number of accidents where the Driver has been at fault
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="NumberOfNonCollisionClaims" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+NumberOfNonCollisionClaims
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DriverYearOfBirth" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+The Driver Year of Birth
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="EligibilityQuestions" type="tns:EligibilityQuestion">
+            <xs:annotation>
+               <xs:documentation>
+Describes the eligibility questions for the driver
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="NoClaimBonus" type="tns:VehicleNoClaimBonus">
+            <xs:annotation>
+               <xs:documentation>
+Describes the No Claim Bonus (NCB) for the driver
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BirthDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="Party" type="tns:Party"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="PropertyCoverageTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BuildingContents"/>
+         <xs:enumeration value="Buildings"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="SpecifiedContents"/>
+         <xs:enumeration value="SpecifiedValuables"/>
+         <xs:enumeration value="UnspecifiedValuables"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="OrganisationName">
+      <xs:annotation>
+         <xs:documentation>
+Describes the Party name where the Party type is Organisation
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:PartyName">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Name" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+This is either the Main Organisation Name, the Organisation Tranbing Name, the Orginisation Registered Name or Other Name (depending on the value of OrganisationName.Type).
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Type" type="tns:OrganisationNameTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Valid Values:
+Main|TradingName|Other|Registered
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PolicyPackage">
+      <xs:annotation>
+         <xs:documentation>
+Holds the risk information for the Policy
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="ProductType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The product selected for the Policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BusinessDescription" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Free format text to describe the business carried when there is only one location
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ProductGroup" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+for example where Line of business is at Product level, or any other product grouping
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="OccupationalIndustryCodes" type="tns:OccupationalIndustryCodes">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Industry or Occupation codes applicable eg ANZSIC
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PolicyExcess">
+            <xs:annotation>
+               <xs:documentation>
+Describes each excesses applicable at the Policy level
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Discount" type="tns:Discount">
+            <xs:annotation>
+               <xs:documentation>
+Describes the details for each Policy level discount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Terms and Conditions applicable at the Policy level - repeating group
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty">
+            <xs:annotation>
+               <xs:documentation>
+Holds any Interested Party details for the policy package - repeating group
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Location" type="tns:Location">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Location in terms of the address and other information pertaining to the location
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Component" type="tns:Component">
+            <xs:annotation>
+               <xs:documentation>
+Contains the various components on the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="ValuablesCoverageType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BikeEquipment"/>
+         <xs:enumeration value="Clothing"/>
+         <xs:enumeration value="Collectibles"/>
+         <xs:enumeration value="ComputerEquipment"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="FilmsAndTapes"/>
+         <xs:enumeration value="Firearms"/>
+         <xs:enumeration value="GolfEquipment"/>
+         <xs:enumeration value="Jewellery"/>
+         <xs:enumeration value="KitchenEquipment"/>
+         <xs:enumeration value="MedicalAids"/>
+         <xs:enumeration value="MusicalInstruments"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="PedalBicycles"/>
+         <xs:enumeration value="Phones"/>
+         <xs:enumeration value="PhotographicEquipment"/>
+         <xs:enumeration value="Rugs"/>
+         <xs:enumeration value="SpecifiedValuables"/>
+         <xs:enumeration value="SportingEquipment"/>
+         <xs:enumeration value="StampsAndCoins"/>
+         <xs:enumeration value="StereoEquipment"/>
+         <xs:enumeration value="UnspecifiedValuables"/>
+         <xs:enumeration value="WearingApparelPersonalEffects"/>
+         <xs:enumeration value="WorksOfArt"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PropertyComponent">
+      <xs:annotation>
+         <xs:documentation>
+Describes the details for each property component
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Component">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="LocationReference" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Unique reference for the location - ties the PropertyComponent instance to the Location instance
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="NoClaimBonus" type="tns:PropertyNoClaimBonus">
+                  <xs:annotation>
+                     <xs:documentation>
+No Claims Bonus details for the valuables coverage
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Building" type="tns:Building">
+                  <xs:annotation>
+                     <xs:documentation>
+Holds the building details for the location.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Contents" type="tns:Contents">
+                  <xs:annotation>
+                     <xs:documentation>
+Holds the contents details for the location.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Valuables" type="tns:Valuables">
+                  <xs:annotation>
+                     <xs:documentation>
+Holds valuables details - these may relate to Buildimngs and contents or may represent a seperate valuables cover
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="ClaimsHistory">
+      <xs:sequence>
+         <xs:element name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Describes the type of claim: Motor, Property, Liability , Travel
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="NumberClaims" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+Describes number of claims made for that line of business
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Detail" type="tns:Claim">
+            <xs:annotation>
+               <xs:documentation>
+Repeating element.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="GenericPartyNameSearchCriteria">
+   </xs:complexType>
+      <xs:complexType name="Address">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Description" type="tns:AddressDescriptionEnum">
+            <xs:annotation>
+               <xs:documentation>
+The type of address. Valid Values: |Business|Home|Holiday|Registered|
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Type" type="tns:AddressTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+Valid Value: |Mailing|Risk
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Reference" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Unique reference for an address
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AddressDetails" type="tns:AddressDetails">
+            <xs:annotation>
+               <xs:documentation>
+Describes the address
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="RetrieveInsurancePoliciesContext">
+      <xs:complexContent>
+         <xs:extension base="tns:Context">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="RetrieveInsurancePoliciesResponse" type="tns:RetrieveInsurancePoliciesResponse"/>
+               <xs:element minOccurs="0" name="RetrieveInsurancePoliciesRequest" type="tns:RetrieveInsurancePoliciesRequest"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Building">
+      <xs:annotation>
+         <xs:documentation>
+Holds the building details
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Identifier" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Where there are multiple buildings for the location address, each building will need to be identified separately.  This identifier is used to associate any contents and valuables coverages to this building risk.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+general description for the building eg Barn
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Use">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Residential| Business| Business&amp;Residential|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Business"/>
+                  <xs:enumeration value="Residential"/>
+                  <xs:enumeration value="Business&amp;Residential"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Freestanding Home, Unit, Duplex, Terrace, Townhouse etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Occupation" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Owner occupied, Holiday House etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ConstructionYear" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg 1900, or 1875 - 1915
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ConstructionType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+eg Timber, Brick
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FoundationConstructionType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Timber, Concrete, Mixed
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="WallConstructionType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Timber, concrete, Mud brick, etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="RoofConstructionType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Metal, tiles, Slate, Hardiplank
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FireBrigadeArea">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+CFA|MFB|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="CFA"/>
+                  <xs:enumeration value="MFB"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Indicator" type="tns:BuildingIndicator">
+            <xs:annotation>
+               <xs:documentation>
+Holds the property indicators applicable to the building
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="CoverageExtensions" type="tns:BuildingCoverageExtensions"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Discount" type="tns:Discount"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty">
+            <xs:annotation>
+               <xs:documentation>
+Interested Parties relating to the Building component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="5" minOccurs="0" name="Comments" type="tns:Comment">
+            <xs:annotation>
+               <xs:documentation>
+Holds any unstructured comments relating to the component 
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AttachedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="TerminatedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Coverage" type="tns:BuildingCoverage">
+            <xs:annotation>
+               <xs:documentation>
+Holds the sums insured for the building (or other PropertySumInsuredType)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="UnderwriterRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PersonalAccidentExcess">
+      <xs:complexContent>
+         <xs:extension base="tns:Excess">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PersonalAccidentExcesTypeEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PolicyExcessTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Age"/>
+         <xs:enumeration value="Basic"/>
+         <xs:enumeration value="Compulsory"/>
+         <xs:enumeration value="Imposed"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Special"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="TermsAndConditions">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Clause, Endorsement, Warranty etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="UniqueReference" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+ Also known as Code or number
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VersionNumber" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+Where there arem ultiple versions of the TermOrCondition
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Name" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+ The name of the TermAndCondition eg “Care Custody and Control”
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Details" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+ The details of the term/condition/endorsement etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="ExtensionTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AccidentalDamage"/>
+         <xs:enumeration value="AgreedValue"/>
+         <xs:enumeration value="CaravanAnnexe"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="Equipment"/>
+         <xs:enumeration value="Flood"/>
+         <xs:enumeration value="HireCar"/>
+         <xs:enumeration value="MarketValue"/>
+         <xs:enumeration value="Power"/>
+         <xs:enumeration value="Racing"/>
+         <xs:enumeration value="SideCar"/>
+         <xs:enumeration value="SpecifiedContents"/>
+         <xs:enumeration value="Theft"/>
+         <xs:enumeration value="Trailer"/>
+         <xs:enumeration value="WaterSki"/>
+         <xs:enumeration value="Windscreen"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="ContentsCoverage">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="CoverageType" type="tns:ContentsCoverageTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecifiedItem" type="tns:SpecifiedItem">
+                  <xs:annotation>
+                     <xs:documentation>
+List of specified items
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess">
+                  <xs:annotation>
+                     <xs:documentation>
+Excess details for the Contents Coverage
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="SimpleIndicator">
+      <xs:complexContent>
+         <xs:extension base="tns:Indicator">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Identifier" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The indicator identifier
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="ClaimStatus">
+      <xs:complexContent>
+         <xs:extension base="tns:Status">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Value" type="tns:ClaimStatusValueEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="VehicleEligibilityQuestion">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+|Roadworthy|Unrepaired Damage|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Roadworthy"/>
+                  <xs:enumeration value="Unrepaired Damage"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+True/False
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Details" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Further details where applicable
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="InsuredRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="PartyRoleSearchCriteria">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="hasRole" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="Currency">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CurrencyCode" type="xs:string"/>
+         <xs:element minOccurs="0" name="CurrencyConversionDateTime" type="tns:EnterpriseDateTime"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PersonalAccidentCoverageExtensions">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PersonalAccidentTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PersonalAccidentExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="Excess">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Percentage" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+Adjustment Percentage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Amount" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+Adjustment amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Any further details around the Discount or Excess
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="NoClaimBonus">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Level">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+1|2|3|4|5|6|7|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="1"/>
+                  <xs:enumeration value="2"/>
+                  <xs:enumeration value="3"/>
+                  <xs:enumeration value="4"/>
+                  <xs:enumeration value="5"/>
+                  <xs:enumeration value="6"/>
+                  <xs:enumeration value="7"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg Rating 1
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Indicator" type="tns:SimpleIndicator">
+            <xs:annotation>
+               <xs:documentation>
+No Claim Bonus Indicator Group
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="UnstructuredPersonName">
+      <xs:annotation>
+         <xs:documentation>
+Describes the Party name where the Party is a Person and the name is unstructured.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:PartyName">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="FullName" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Describes the Party name where the Party is a Person and the name is unstructured.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Party">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type">
+            <xs:annotation>
+               <xs:documentation>
+Person or Organisation
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Organisation"/>
+                  <xs:enumeration value="Person"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Role" type="tns:PartyRole">
+            <xs:annotation>
+               <xs:documentation>
+The Party Role Type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Name" type="tns:PartyName">
+            <xs:annotation>
+               <xs:documentation>
+The Name of the Party. Will return either an Organisation Name OR a  structured Person Name OR an unstructured Person Name for each Party  For a Party which is a Person with an Insured Role,  only a Person Name (asPersonName) or an Unstructured person name (asUnstructuredPersonName) is returned.  For a Party with Type of Organisation and role type of Insured,  only an Organisation Name (asOrganisationName) is returned  For a Party with Type of Organisation and role type of Intermediary,  only an Organisation Name (asOrganisationName) is returned
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Contact" type="tns:PartyContact">
+            <xs:annotation>
+               <xs:documentation>
+Create an instance of Contacts for each Contact Type  Valid Values: Phone|BusinessPhone|PrivatePhone|MobilePhone|BusinessEmail|PrivateEmail|BusinessFax|PrivateFax|
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Status" type="tns:PartyStatus">
+            <xs:annotation>
+               <xs:documentation>
+Party Status details
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Reference" type="tns:Reference">
+            <xs:annotation>
+               <xs:documentation>
+If the Response resultset contains External, Previous or Other reference data for the Party, then additional instances of the ReferenceDetails Group will be created for each of these.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Address" type="tns:Address">
+            <xs:annotation>
+               <xs:documentation>
+If the Address Details returned from the provider are in a structured format, then populate the AddressDetails group, otherwise populate UnstructuredAddress
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PolicyholderRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="VehicleCoverageExtension">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ExtensionType" type="tns:VehicleExtensionTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Classifies the type of extension
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:VehicleExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="LiabilityCoverage">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:LiabilityCoverageTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="CoverageExtensions_ExtensionTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AdultKids"/>
+         <xs:enumeration value="Australia&amp;NZ"/>
+         <xs:enumeration value="Flood"/>
+         <xs:enumeration value="Fusion"/>
+         <xs:enumeration value="HomeOffice"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Pets"/>
+         <xs:enumeration value="PropertyAwayFromHome"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="Commission">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Primary, Secondary, Affiliation, Other
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Amount" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The Commission Amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The Commission Tax Amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="ItemInsuredTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="Valuables"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="VehicleModification">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+eg custom stereo, turbo, wheels etc
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Excess" type="tns:VehicleExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Location">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Reference" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+ The location identifier
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BusinessDescription" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Free format text to describe the business carried out at the location
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Address" type="tns:Address">
+            <xs:annotation>
+               <xs:documentation>
+Will return either structured or unstructured address details
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="AddressSearchCriteria">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Description" type="tns:AddressDescriptionEnum">
+            <xs:annotation>
+               <xs:documentation>
+                  The type of address.
+                  Valid Values: |Business|Home|Holiday|Registered|
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Type" type="tns:AddressTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+                  Valid Value:
+                  |Mailing|Risk
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Reference" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+                  Unique reference for an address
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AddressDetails" type="tns:AddressDetailsSearchCriteria"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="AddressTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Mailing"/>
+         <xs:enumeration value="Risk"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PersonNameSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:GenericPartyNameSearchCriteria">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Title" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The title of the individual, eg. Mr, Mrs.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="GivenName" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The first name of the individual.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Surname" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+                        The surname of the individual.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="DriverRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Policy">
+      <xs:annotation>
+         <xs:documentation>
+Holds the policy structure
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PolicyHeader" type="tns:PolicyHeader"/>
+         <xs:element minOccurs="0" name="PolicyPackage" type="tns:PolicyPackage">
+            <xs:annotation>
+               <xs:documentation>
+Holds the risk information for the Policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PolicyBilling" type="tns:PolicyBilling"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="Status">
+      <xs:annotation>
+         <xs:documentation>
+Describes the status
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Reason" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Reason for the status
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="StatusDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Status Date and Time for the Driver status
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="OrganisationNameTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Main"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Registered"/>
+         <xs:enumeration value="TradingName"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PolicyStatus">
+      <xs:annotation>
+         <xs:documentation>
+Policy Status details
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Status">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Value" type="tns:PolicyStatusValueEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Where StatusType is Policy
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="RetrievePolicyDetailsRequest">
+      <xs:sequence>
+         <xs:element name="AsAtDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element name="Reference" type="tns:Reference"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="BuildingIndicator">
+      <xs:complexContent>
+         <xs:extension base="tns:Indicator">
+            <xs:sequence>
+               <xs:element name="Type">
+                  <xs:annotation>
+                     <xs:documentation>
+The type of property indicator specified
+                     </xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="BurglarAlarm"/>
+                        <xs:enumeration value="CouncilApproved"/>
+                        <xs:enumeration value="Deadlocks"/>
+                        <xs:enumeration value="Dog"/>
+                        <xs:enumeration value="FloodZone"/>
+                        <xs:enumeration value="HeritageListed"/>
+                        <xs:enumeration value="HeritageOverlay"/>
+                        <xs:enumeration value="MortgageIndemnity"/>
+                        <xs:enumeration value="MultiLevel"/>
+                        <xs:enumeration value="OtherHazards"/>
+                        <xs:enumeration value="RuralAcreage"/>
+                        <xs:enumeration value="SatelliteDish"/>
+                        <xs:enumeration value="SecurityScreens"/>
+                        <xs:enumeration value="SmokeDetectors"/>
+                        <xs:enumeration value="SolarSystem"/>
+                        <xs:enumeration value="StrataTitle"/>
+                        <xs:enumeration value="SwimmingPool"/>
+                        <xs:enumeration value="SwimmingPoolFenced"/>
+                        <xs:enumeration value="TennisCourt"/>
+                        <xs:enumeration value="TownServices"/>
+                        <xs:enumeration value="UndergoingRenovation"/>
+                        <xs:enumeration value="UnrepairedDamage"/>
+                        <xs:enumeration value="Watertanks"/>
+                        <xs:enumeration value="Window Locks"/>
+                        <xs:enumeration value="AccidentalDamage"/>
+                        <xs:enumeration value="Fusion"/>
+                        <xs:enumeration value="PersonalEffects"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess">
+                  <xs:annotation>
+                     <xs:documentation>
+Describes the excesses applicable to the building coverage extensions
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="LegalQuestionsEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="DutyOfDisclosure"/>
+         <xs:enumeration value="PrivacyStatement"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="PropertyCoverageExtensions_PropertyExtensionTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AdultKids"/>
+         <xs:enumeration value="Australia&amp;NZ"/>
+         <xs:enumeration value="Flood"/>
+         <xs:enumeration value="Fusion"/>
+         <xs:enumeration value="HomeOffice"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Pets"/>
+         <xs:enumeration value="PropertyAwayFromHome"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="ContentsSpecifiedItemEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="SpecifiedContents"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="StateTerritoryEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="ACT"/>
+         <xs:enumeration value="NSW"/>
+         <xs:enumeration value="NT"/>
+         <xs:enumeration value="QLD"/>
+         <xs:enumeration value="SA"/>
+         <xs:enumeration value="TAS"/>
+         <xs:enumeration value="VIC"/>
+         <xs:enumeration value="WA"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="Comment">
+      <xs:sequence>
+         <xs:element name="Sequence" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+Sequence Number of the  comment
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Detail" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The comment detail
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="VehicleExtensionTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AccidentalDamage"/>
+         <xs:enumeration value="AgreedValue"/>
+         <xs:enumeration value="CaravanAnnexe"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="Equipment"/>
+         <xs:enumeration value="Flood"/>
+         <xs:enumeration value="HireCar"/>
+         <xs:enumeration value="MarketValue"/>
+         <xs:enumeration value="Power"/>
+         <xs:enumeration value="Racing"/>
+         <xs:enumeration value="SideCar"/>
+         <xs:enumeration value="SpecifiedContents"/>
+         <xs:enumeration value="Theft"/>
+         <xs:enumeration value="Trailer"/>
+         <xs:enumeration value="WaterSki"/>
+         <xs:enumeration value="Windscreen"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="LiabilityIndicator">
+      <xs:complexContent>
+         <xs:extension base="tns:Indicator">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:LiabilityIndicatorTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:LiabilityExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="AddressDescriptionEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Business"/>
+         <xs:enumeration value="Holiday"/>
+         <xs:enumeration value="Home"/>
+         <xs:enumeration value="Registered"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="InsuredRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PartySearchCriteriaTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Organisation"/>
+         <xs:enumeration value="Person"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="RetrieveInsurancePoliciesRequest">
+      <xs:annotation>
+         <xs:documentation>
+            Retrieve Insurance Policies request class.  Includes the search request criteria classes.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Context">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="AsAtDateTime" type="tns:EnterpriseDateTime"/>
+               <xs:element minOccurs="0" name="PolicySearchCriteria" type="tns:PolicySearchCriteria"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="BuildingCoverage">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="CoverageType" type="tns:BuildingCoverageTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Context">
+   </xs:complexType>
+      <xs:complexType name="PersonName">
+      <xs:annotation>
+         <xs:documentation>
+Describes the Party name where it is a Party type of Person and the name is structured
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:PartyName">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Title" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The salutation of the person
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="GivenName" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The Given Name of the person
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Surname" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The surname of the person
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PersonalAccidentIndicator">
+      <xs:complexContent>
+         <xs:extension base="tns:Indicator">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PersonalAccidentTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PersonalAccidentExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="UnderwriterRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Reference">
+      <xs:sequence>
+         <xs:element default="Primary" name="ReferenceType">
+            <xs:annotation>
+               <xs:documentation>
+Defines the type of reference or identifier
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="External"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Previous"/>
+                  <xs:enumeration value="Primary"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="ReferenceValue" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+A unique reference for the ReferenceType, eg. Party reference or Policy Reference
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="ContentsCoverageExtensions">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ExtensionType" type="tns:PropertyCoverageExtensions_PropertyExtensionTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="SpecifiedItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Identifier" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Identifier of the specified item
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Description of the specified item
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Type" type="tns:SpecifiedItemTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+Specified item type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SumInsured" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+sum insured of the specified item
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CoverageFinancials" type="tns:CoverageFinancials">
+            <xs:annotation>
+               <xs:documentation>
+Financials for the specified item
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Excess" type="tns:PropertyExcess">
+            <xs:annotation>
+               <xs:documentation>
+Excess details for the specified item
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="Indicator">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Value" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+The Indicator value
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Details" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Description of the Indicator Type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="ClaimStatusValueEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Closed"/>
+         <xs:enumeration value="Notified"/>
+         <xs:enumeration value="Open"/>
+         <xs:enumeration value="ReOpened"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType abstract="true" name="PartyName">
+   </xs:complexType>
+      <xs:complexType name="VehicleExcess">
+      <xs:complexContent>
+         <xs:extension base="tns:Excess">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:VehicleExcessTypeEnum"/>
+               <xs:element minOccurs="0" name="AgeExcessDescription" type="tns:AgeExcessDescriptionEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="InterestedParty">
+      <xs:annotation>
+         <xs:documentation>
+Interested Party details
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg Hire Purchase, Lease, Mortgage
+
+A code indicating the type of finance, eg. MT - First Mortgagee, LS - Leased.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Description of the finance type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Amount" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+where an amount is applicable
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="DocumentPreferences" type="tns:DocumentPreference"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Comment" type="tns:Comment"/>
+         <xs:element minOccurs="0" name="InterestFrom" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Interest From Date and Time for the Interested Party
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InterestTo" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Interest To Date and Time for the Interested Party
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Party" type="tns:Party">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Interested Party and their role
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="LiabilityExcess">
+      <xs:complexContent>
+         <xs:extension base="tns:Excess">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:LiabilityExcessTypeEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="VehicleSpecifiedItem">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type">
+                  <xs:annotation>
+                     <xs:documentation>
+Valid Values: 
+|WaterSkis|BoatSail|Clothing| SportingEquipment|StereoEquipment|PhotographicEquipment|ComputerEquipment|BikeEquipment|BoatEquipment|Contents|Other
+                     </xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="BikeEquipment"/>
+                        <xs:enumeration value="BoatEquipment"/>
+                        <xs:enumeration value="BoatSail"/>
+                        <xs:enumeration value="Clothing"/>
+                        <xs:enumeration value="Computer Equipment"/>
+                        <xs:enumeration value="Contents"/>
+                        <xs:enumeration value="Other"/>
+                        <xs:enumeration value="Photographic Equipment"/>
+                        <xs:enumeration value="Sidecar"/>
+                        <xs:enumeration value="SportingEquipment "/>
+                        <xs:enumeration value="StereoEquipment "/>
+                        <xs:enumeration value="WaterSkis"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element minOccurs="0" name="Excess" type="tns:VehicleExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PartySearchCriteria">
+      <xs:annotation>
+         <xs:documentation>
+            Includes the various classes of Party information from which to search with.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type">
+            <xs:annotation>
+               <xs:documentation>
+                  The type of party. Valid Values: 
+                  Person|Organisation
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Organisation"/>
+                  <xs:enumeration value="Person"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Role" type="tns:PartyRoleSearchCriteria"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Reference" type="tns:Reference"/>
+         <xs:element minOccurs="0" name="Name" type="tns:GenericPartyNameSearchCriteria"/>
+         <xs:element minOccurs="0" name="Address" type="tns:AddressSearchCriteria"/>
+         <xs:element minOccurs="0" name="Contact" type="tns:PartyContactSearchCriteria"/>
+         <xs:element minOccurs="0" name="Status" type="tns:PartyStatusSearchCriteria"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="Discount">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Reason" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+eg  Broker, Market etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Percentage" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+Discount percentage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Amount" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+Discount Amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Any further details around the Discount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="PersonalAccidentExcesTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Accident"/>
+         <xs:enumeration value="Illness"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PropertySpecifiedItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PropertyCoverType">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Buildings"/>
+                  <xs:enumeration value="Caravan"/>
+                  <xs:enumeration value="Contents"/>
+                  <xs:enumeration value="Valuables"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="SpecifiedItemType">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="BikeEquipment"/>
+                  <xs:enumeration value="Clothing"/>
+                  <xs:enumeration value="Collectibles"/>
+                  <xs:enumeration value="Computer Equipment"/>
+                  <xs:enumeration value="Contents"/>
+                  <xs:enumeration value="Jewellery"/>
+                  <xs:enumeration value="KitchenEquipment"/>
+                  <xs:enumeration value="MedicalAids"/>
+                  <xs:enumeration value="MusicalInstruments"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Phones"/>
+                  <xs:enumeration value="Photographic Equipment"/>
+                  <xs:enumeration value="Rugs"/>
+                  <xs:enumeration value="SportingEquipment"/>
+                  <xs:enumeration value="StereoEquipment"/>
+                  <xs:enumeration value="Works of Art"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="SpecifiedItemValue" type="xs:int"/>
+         <xs:element minOccurs="0" name="CoverageCode" type="xs:string"/>
+         <xs:element minOccurs="0" name="CoverageType" type="tns:ContentsCoverageTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Contents|SpecifiedContents|BuildingContents
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SumInsured" type="xs:double"/>
+         <xs:element minOccurs="0" name="Financials" type="tns:CoverageFinancials"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="ExcessTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Age"/>
+         <xs:enumeration value="Basic"/>
+         <xs:enumeration value="Compulsory"/>
+         <xs:enumeration value="Imposed"/>
+         <xs:enumeration value="InexperiencedDriver"/>
+         <xs:enumeration value="Special"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="OccupationCode">
+      <xs:complexContent>
+         <xs:extension base="tns:OccupationalIndustryCodes">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="LevelType">
+                  <xs:annotation>
+                     <xs:documentation>
+Where CodeType equals Occupation:
+MajorCode|Sub-major| Minor|Unit |Occupation
+Where CodeType equals
+                     </xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="MajorCode"/>
+                        <xs:enumeration value="Minor"/>
+                        <xs:enumeration value="Occupation"/>
+                        <xs:enumeration value="Unit"/>
+                        <xs:enumeration value="Sub-major"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element minOccurs="0" name="SubLevel" type="tns:OccupationCode">
+                  <xs:annotation>
+                     <xs:documentation>
+Details the Sub Level details for the Occupation Code
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="Valuables">
+      <xs:annotation>
+         <xs:documentation>
+Holds the valuables details for the location.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Identifier" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+This is the Identifier for the Valuables risk - used to link valuables coverage to Buildinga and/or contents coverages (should they exist)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AttachedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="TerminatedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="CoverageFinancials" type="tns:CoverageFinancials"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Coverage" type="tns:ValuablesCoverage">
+            <xs:annotation>
+               <xs:documentation>
+Valuables coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Discount" type="tns:Discount">
+            <xs:annotation>
+               <xs:documentation>
+Discount details for the Valuables coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions">
+            <xs:annotation>
+               <xs:documentation>
+T&amp;Cs for the Valuables coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty">
+            <xs:annotation>
+               <xs:documentation>
+Discount details for the Valuables coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Comment" type="tns:Comment">
+            <xs:annotation>
+               <xs:documentation>
+Comments for the Valubles coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="District" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+This is the Rating District
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess">
+            <xs:annotation>
+               <xs:documentation>
+Excess details for the Valuables coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PartyContact">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="tns:PartyContactTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+The Type of Contact Detail
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The phone or Fax number or email address as applicable
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Preference" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+True/False
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Flag" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="Premium">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="BasePremium" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The base premium for the component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CalculatedPremium" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The calculated Premium for the component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ProRataPremium" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The Pro-Rata Premium for the component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FutureAnnualPremium" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+FutureAnnualPremium
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="VehicleCoverageTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AsPerSchedule"/>
+         <xs:enumeration value="Caravan"/>
+         <xs:enumeration value="Comprehensive"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="Fleet"/>
+         <xs:enumeration value="MarineHull"/>
+         <xs:enumeration value="TPFT"/>
+         <xs:enumeration value="TPPD"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="LiabilityCoverageExtensions">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:LiabilityIndicatorTypeEnum"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:LiabilityExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="Component">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ComponentGroup" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Line of business for the component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ComponentCode" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+An identifier for the Product or coverage type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CoverageCode" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The coverage code
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="OccupationalIndustryCodes" type="tns:OccupationalIndustryCodes">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Industry or Occupation code applicable at the Component level, eg ANZSIC
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Interested Parties at the Component level
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Currency" type="tns:Currency">
+            <xs:annotation>
+               <xs:documentation>
+Currency details for the PA&amp;I component
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Discount" type="tns:Discount">
+            <xs:annotation>
+               <xs:documentation>
+Describes any discounts applicable at the component level
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions">
+            <xs:annotation>
+               <xs:documentation>
+Describes the Terms and Conditions applicable at the Component level
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Comment" type="tns:Comment">
+            <xs:annotation>
+               <xs:documentation>
+Holds any unstructured comments relating to the component 
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AttachedDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+The effective DateTime when the component was added to the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="TerminatedDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+The End DateTime when the component was terminated/ended on the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Location" type="tns:Location"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="VehicleNoClaimBonus">
+      <xs:complexContent>
+         <xs:extension base="tns:NoClaimBonus">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:VehicleNoClaimBonusEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Valid Values:
+Driver|Vehicle|Other
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="MonetaryAdjustment_MonetaryAdjustmentTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Discount"/>
+         <xs:enumeration value="Excess"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="BranchRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PolicySearchCriteria">
+      <xs:annotation>
+         <xs:documentation>
+            Describes all search criteria for the policy
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ProductType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+                  Product type for the policy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Reference" type="tns:Reference"/>
+         <xs:element minOccurs="0" name="RiskIdentifier" type="tns:RiskIdentifier"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Party" type="tns:PartySearchCriteria"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="BillingMandate">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="MandateReceived" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+ True/False
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="MandateReceivedDateTime" type="tns:EnterpriseDateTime"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="StatusSearchCriteria">
+      <xs:annotation>
+         <xs:documentation>
+            Describes the status
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Reason" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+                  Reason for the status
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="StatusSearchCriteriaDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+                  Holds the Status Date and Time for the Driver status
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PropertyNoClaimBonus">
+      <xs:complexContent>
+         <xs:extension base="tns:NoClaimBonus">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PropertyNoClaimBonusEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PolicyBilling">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PaymentPlanName" type="xs:string"/>
+         <xs:element minOccurs="0" name="PaymentFrequencyType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Payment Frequency:
+Annual, Monthly, Fortnightly, Bi-Annual, Quarterly,
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BpayReference" type="xs:string"/>
+         <xs:element minOccurs="0" name="PremiumOutstandingAmount" type="xs:decimal"/>
+         <xs:element minOccurs="0" name="PaymentMethod" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg credit card, EFT
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PremiumOutstanding" type="xs:boolean"/>
+         <xs:element minOccurs="0" name="BillingMandate" type="tns:BillingMandate"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Instalments" type="tns:Instalment"/>
+         <xs:element minOccurs="0" name="NextInstalmentDueDate" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="LastInstalmentPaidDateTime" type="tns:EnterpriseDateTime"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="StructuredAddressDetails">
+      <xs:annotation>
+         <xs:documentation>
+Describes the structured address
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:AddressDetails">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="FlatUnit" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg Flat or Unit
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="FlatUnitNumber" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Flat or Unit number
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="FloorLevel" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Level, eg 1, Ground
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="FloorLevelNumber" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The floor level number
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="BuildingPropertyName1" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Building name 1
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="BuildingPropertyName2" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Building name 2
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="LocationDescriptor" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Location Description eg corner of
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="HouseNumber1" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+House number 1
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="HouseNumber1Suffix" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg A
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="HouseNumber2" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+House number 2
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="HouseNumber2Suffix" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg A
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="LotNumber" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg 101
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StreetName" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address street name.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StreetType" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address street type, eg. |Street|Road|Avenue|Place|Close, etc..
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StreetSuffix" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg A
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="PostalDeliveryType" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+eg Post office box , Registered Mail box
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="PostalDeliveryNumberPrefix" type="xs:string"/>
+               <xs:element minOccurs="0" name="PostalDeliveryNumber" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Post office box number
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="PostalDeliveryNumberSuffix" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+Eg A
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="SuburbPlaceLocality" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address suburb.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="StateTerritory" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address state.
+Valid Values: |Vic|SA|NT|ACT|QLD|TAS|NSW|WA
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Country" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address country name, eg. Australia
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Postcode" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The address postcode.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DeliveryPoint" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+The unique delivery point ID per address.
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PolicyStatusValueEnum">
+      <xs:annotation>
+         <xs:documentation>
+Where StatusType =Policy
+         </xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Active"/>
+         <xs:enumeration value="Cancelled"/>
+         <xs:enumeration value="CoverNote"/>
+         <xs:enumeration value="Declined"/>
+         <xs:enumeration value="Inquiry"/>
+         <xs:enumeration value="Lapsed"/>
+         <xs:enumeration value="NTU"/>
+         <xs:enumeration value="PremiumOwing"/>
+         <xs:enumeration value="Quote"/>
+         <xs:enumeration value="RenewalNotInvited"/>
+         <xs:enumeration value="Renewed"/>
+         <xs:enumeration value="Reviewed"/>
+         <xs:enumeration value="ReviewRequired"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="RetrievePolicyDetailsResponse">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Policy" type="tns:Policy"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="Charge">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ChargeType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+instalment, broker, other
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ChargeAmount" type="xs:decimal">
+            <xs:annotation>
+               <xs:documentation>
+The charge amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="CommentType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Comments1"/>
+         <xs:enumeration value="Comments2"/>
+         <xs:enumeration value="Comments3"/>
+         <xs:enumeration value="Comments4"/>
+         <xs:enumeration value="Comments5"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="Instalment">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="InstalmentType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+For example, FirstInstalment, NextInstalment. This is used where the first instalment may be different from the subsequent instalments.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Currency" type="tns:Currency"/>
+         <xs:element minOccurs="0" name="InstalmentAmount" type="tns:InstalmentAmount"/>
+         <xs:element minOccurs="0" name="InstalmentDateTime" type="tns:EnterpriseDateTime"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PartyStatus">
+      <xs:annotation>
+         <xs:documentation>
+Party Status Details
+         </xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="tns:Status">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Value" type="tns:PartyStatusValueEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+The Status Value
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="LiabilityIndicatorTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="CareCustodyControl"/>
+         <xs:enumeration value="DomesticWorkers"/>
+         <xs:enumeration value="Livestock"/>
+         <xs:enumeration value="UnregisteredVehicles"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="IntermediaryRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="RetrieveInsurancePoliciesResponse">
+      <xs:annotation>
+         <xs:documentation>
+            Retrieve Insurance Policies response class.  Includes the resultset of search results
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="PolicyHeader" type="tns:PolicyHeader"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="BuildingCoverageExtensions">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ExtensionType" type="tns:BuildingCoverageExtensionsEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+The type of coverage extensions for the Component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PartyContactSearchCriteria">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="tns:PartyContactTypeEnum">
+            <xs:annotation>
+               <xs:documentation>
+                  The type of contact
+                  Valid Values: Phone|BusinessPhone|BusinessEmail|PrivatePhone|PrivateEmail|BusinessFax|PrivateFax|Mobile
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+                  The contact details for the ContactType, eg, Mobile Phone Number, email address
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PersonalAccidentComponent">
+      <xs:complexContent>
+         <xs:extension base="tns:Component">
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Coverage" type="tns:PersonalAccidentCoverage">
+                  <xs:annotation>
+                     <xs:documentation>
+Coverage details for the PA&amp;I component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="CoverageExtensions" type="tns:PersonalAccidentCoverageExtensions"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Indicator" type="tns:PersonalAccidentIndicator">
+                  <xs:annotation>
+                     <xs:documentation>
+Indicator details for the PA&amp;I component
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PersonalAccidentExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PropertyExcess">
+      <xs:complexContent>
+         <xs:extension base="tns:Excess">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Type" type="tns:PropertyExcessTypeEnum"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="PersonalAccidentTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Accident"/>
+         <xs:enumeration value="Illness"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="EligibilityQuestion">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Type" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+InsuranceCancelled|Criminal Offences|Bankruptcies|AlcoholAnd Drugs|Claims|LicenceSuspended
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Details" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Describes the details of the answer to the eligibility question.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="UnspecifiedItems">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="CoverageCode" type="xs:string"/>
+         <xs:element minOccurs="0" name="CoverageType" type="xs:string"/>
+         <xs:element minOccurs="0" name="SumInsured" type="xs:double"/>
+         <xs:element minOccurs="0" name="CoverageFinancials" type="tns:CoverageFinancials"/>
+         <xs:element minOccurs="0" name="PropertyExcess" type="tns:Excess"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="RenewalIndicatorEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="AutomaticRenewal"/>
+         <xs:enumeration value="Lapsed"/>
+         <xs:enumeration value="RenewalBlocked"/>
+         <xs:enumeration value="RenewalInvitation"/>
+         <xs:enumeration value="RenewalReviewRequired"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="BuildingCoverageTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Garage"/>
+         <xs:enumeration value="SatelliteDish"/>
+         <xs:enumeration value="Shed"/>
+         <xs:enumeration value="SolarSystem"/>
+         <xs:enumeration value="Water Tank"/>
+         <xs:enumeration value="Buildings"/>
+         <xs:enumeration value="Fences"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="ContentsCoverageTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BuildingContents"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="SpecialContents"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="Vehicle">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Location" type="tns:Location"/>
+         <xs:element minOccurs="0" name="VehicleRiskIdentifier" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The identifier for a specific vehicle
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleType">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Land|Marine|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Land"/>
+                  <xs:enumeration value="Marine"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleClass">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Motor|Boat|Motorcycle|Caravan
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Boat"/>
+                  <xs:enumeration value="Car"/>
+                  <xs:enumeration value="Caravan"/>
+                  <xs:enumeration value="Motorcycle"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleCoverageBasis">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="AgreedValue"/>
+                  <xs:enumeration value="MarketValue"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleUse">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Private|Business|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Business"/>
+                  <xs:enumeration value="Private"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleTypeCode" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The vehicle identifier (NVIC Code)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleRegistration" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleEngineCapacity" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleBodyType" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleMakeCode" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleMakeDescription" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleModel" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleSeries" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleYearOfManufacture" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleVIN" type="xs:string"/>
+         <xs:element minOccurs="0" name="VehicleLicenceType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg type of Motorcycle licence
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleConstructionType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Eg Wood, Aluminium
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleDescription" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Used for Caravan and Boat free format descriptions
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleSumInsured" type="xs:double">
+            <xs:annotation>
+               <xs:documentation>
+The Risk sum insured amount
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="KmsTravelled" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The number of Kms traveled by the vehicle
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleGeographicalLimit" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Where the vehicle is limited to a particular area, eg. Port Phillip Bay
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleDistrict" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+This is the Rating District
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="WhereVehiclePurchased" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Where the vehicle was purchased eg, Auction, Private Sale, Car Yard
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="WhenVehiclePurchased" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Year the vehicle was purchased
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleParkedLocationDay" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Location where car is normally parked during the day eg garage, street, carport
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleParkedLocationNight" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Location where car is normally parked during the night eg garage, street, carport
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PreviousInsurer" type="tns:Party"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="VehicleEligibilityQuestion" type="tns:VehicleEligibilityQuestion"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="VehicleIndicator" type="tns:VehicleIndicator"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="VehicleCoverageExtension" type="tns:VehicleCoverageExtension"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="VehicleModification" type="tns:VehicleModification"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="VehicleSpecifiedItem" type="tns:VehicleSpecifiedItem"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:VehicleExcess"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty"/>
+         <xs:element minOccurs="0" name="CoverageFinancials" type="tns:CoverageFinancials"/>
+         <xs:element minOccurs="0" name="NoClaimBonus" type="tns:VehicleNoClaimBonus"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="SpecifiedItemTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BikeEquipment"/>
+         <xs:enumeration value="Clothing"/>
+         <xs:enumeration value="Collectibles"/>
+         <xs:enumeration value="ComputerEquipment"/>
+         <xs:enumeration value="Contents"/>
+         <xs:enumeration value="FilmsAndTapes"/>
+         <xs:enumeration value="Firearms"/>
+         <xs:enumeration value="GolfEquipment"/>
+         <xs:enumeration value="Jewellery"/>
+         <xs:enumeration value="KitchenEquipment"/>
+         <xs:enumeration value="MedicalAids"/>
+         <xs:enumeration value="MusicalInstruments"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="PedalBicycles"/>
+         <xs:enumeration value="Phones"/>
+         <xs:enumeration value="PhotographicEquipment"/>
+         <xs:enumeration value="Rugs"/>
+         <xs:enumeration value="SportingEquipment"/>
+         <xs:enumeration value="StampsAndCoins"/>
+         <xs:enumeration value="StereoEquipment"/>
+         <xs:enumeration value="WearingApparelPersonalEffects"/>
+         <xs:enumeration value="WorksOfArt"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="IndustryCode">
+      <xs:complexContent>
+         <xs:extension base="tns:OccupationalIndustryCodes">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="LevelType" type="tns:IndustryLevelTypeEnum">
+                  <xs:annotation>
+                     <xs:documentation>
+Industry:
+Division|Sub-division| Class|
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="SubLevel" type="tns:IndustryCode">
+                  <xs:annotation>
+                     <xs:documentation>
+Details the Sub Level details for the Industry Code
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType abstract="true" name="PartyRole">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="hasRole" type="xs:boolean"/>
+         <xs:element minOccurs="0" name="Status" type="tns:PartyStatus">
+            <xs:annotation>
+               <xs:documentation>
+The Party Status
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="VehicleExcessTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Age"/>
+         <xs:enumeration value="Basic"/>
+         <xs:enumeration value="Compulsory"/>
+         <xs:enumeration value="Imposed"/>
+         <xs:enumeration value="InexperiencedDriver"/>
+         <xs:enumeration value="Special"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="IntermediaryAgreement">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Name" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+the intermediary agreement name for the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Reference" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+the intermediary agreement reference for the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AccountManager" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="LiabilityExcessTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Age"/>
+         <xs:enumeration value="Basic"/>
+         <xs:enumeration value="Compulsory"/>
+         <xs:enumeration value="Imposed"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Special"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="VehicleSumInsured">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="VehicleSumInsuredType">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="AgreedValue"/>
+                  <xs:enumeration value="Boat"/>
+                  <xs:enumeration value="Caravan"/>
+                  <xs:enumeration value="MarketValue"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="VehicleSumInsuredValue" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="PartySearchCriteria_PartyTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Organisation"/>
+         <xs:enumeration value="Person"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="DocumentPreference">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="DocumentType">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+Claims| Policy|
+               </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="Claims"/>
+                  <xs:enumeration value="Policy"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="SendCopy" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>
+Indicates whether the interested Party get a copy of documents
+
+Do we need this field - DocumentType indicates the document preference, Either Claim or Policy?
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="PartyTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Organisation"/>
+         <xs:enumeration value="Person"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="PropertySumInsuredTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Building"/>
+         <xs:enumeration value="Fence"/>
+         <xs:enumeration value="Garage"/>
+         <xs:enumeration value="SatelliteDish"/>
+         <xs:enumeration value="Shed"/>
+         <xs:enumeration value="SolarSystem"/>
+         <xs:enumeration value="WaterTank"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType abstract="true" name="OccupationalIndustryCodes">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="LevelCode" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The code that relates to the level eg  Occupation LevelType would have a code in format of 9222-11
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="LevelDescription" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The description that relates to the level – eg 9222-11 has an Industry description of “Package Filler”
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="PolicyHeader">
+      <xs:annotation>
+         <xs:documentation>
+Describes the general information around a policy that is not risk specific.
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="PolicyPosition" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+NB, MTA, RNWL etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PolicyPeriodBasis" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Whether the policy is a 4pm or Midnight policy basis.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ProductType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The product selected for the Policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SchemeType" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+Only applicable where the scheme type is a different value to the Product type
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="RenewalIndicator" type="tns:RenewalIndicatorEnum">
+            <xs:annotation>
+               <xs:documentation>
+Valid Values: 
+AutomaticRenewal|RenewalInvitation|Lapsed
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="RenewalBasis" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+annual, no renewal, 6 monthly etc
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="LongTermAgreementYears" type="xs:int">
+            <xs:annotation>
+               <xs:documentation>
+For example 3, 5 (years)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="LongTermAgreementExpires" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+The end DateTime for the long term agreement, for example 2015
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InceptionDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Inception Date and Time (where applicable)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="EffectiveDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+The effective date and time of the policy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ExpiryDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Expiry Date and Time (where applicable) This may be consumer Cancellation Date when the Policy Status is Cancelled
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="TransactionDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Transaction Date and Time (where applicable)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="OriginalInceptionDateTime" type="tns:EnterpriseDateTime">
+            <xs:annotation>
+               <xs:documentation>
+Holds the Original Inception Date and Time (where applicable)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Party" type="tns:Party">
+            <xs:annotation>
+               <xs:documentation>
+Describes the parties for the policy eg Insured, Intermediary. There will be a repeating Party group for each Role on the policy.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="UnderwritingIndicator" type="tns:SimpleIndicator">
+            <xs:annotation>
+               <xs:documentation>
+Describes each underwriting indicator for the policy  Create an instance of UnderwritingIndicator for each Indicator - The current provider will return one Underwriting Code.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Comment" type="tns:Comment">
+            <xs:annotation>
+               <xs:documentation>
+Holds any unstructured comments relating to the component 
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="LegalQuestion" type="tns:LegalQuestion">
+            <xs:annotation>
+               <xs:documentation>
+Describes each legal question for the policy
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InsuredEligibiltyQuestion" type="tns:EligibilityQuestion">
+            <xs:annotation>
+               <xs:documentation>
+Details for each question type  One instance EligibilityQuestions per Type - No LegalQuestions are mapped from the current provider
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ClaimsHistory" type="tns:ClaimsHistory">
+            <xs:annotation>
+               <xs:documentation>
+Describes any prior claims history as disclosed for the Insured
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Status" type="tns:PolicyStatus">
+            <xs:annotation>
+               <xs:documentation>
+Policy Status details
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Reference" type="tns:Reference">
+            <xs:annotation>
+               <xs:documentation>
+The RetrievePolicyDetails Response must contain a PolicyReference  The returned Policy Number will be contained within this group, with a ReferenceType of Primary.  Concatenate three provider fields into ReferenceValue.  If the resultset contains External, Previous or Other reference data, then additional instances of the ReferenceDetails Group will be created for each of those.
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:complexType name="ValuablesCoverage">
+      <xs:complexContent>
+         <xs:extension base="tns:Coverage">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="CoverageType" type="tns:ValuablesCoverageType"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="SpecifiedItem" type="tns:SpecifiedItem">
+                  <xs:annotation>
+                     <xs:documentation>
+Specified Items list of valuables
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="GenderEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Female"/>
+         <xs:enumeration value="Male"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:simpleType name="PartyContactTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="BusinessEmail"/>
+         <xs:enumeration value="BusinessFax"/>
+         <xs:enumeration value="BusinessPhone"/>
+         <xs:enumeration value="Mobile"/>
+         <xs:enumeration value="Phone"/>
+         <xs:enumeration value="PrivateEmail"/>
+         <xs:enumeration value="PrivateFax"/>
+         <xs:enumeration value="PrivatePhone"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="PreviousInsurer">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:simpleType name="LiabilityCoverageTypeEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Products"/>
+         <xs:enumeration value="Public"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="Contents">
+      <xs:annotation>
+         <xs:documentation>
+Holds the contents details for the location.
+
+Create an instance of this group for each Content item
+         </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Identifier" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>
+This is the Identifier for the Contents risk - used to link Contents coverage to Building and/or valuables coverages (should they exist)
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Coverage" type="tns:ContentsCoverage"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="CoverageExtensions" type="tns:ContentsCoverageExtensions"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Indicator" type="tns:BuildingIndicator"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Discount" type="tns:Discount"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="TermsAndConditions" type="tns:TermsAndConditions"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="InterestedParty" type="tns:InterestedParty"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Comments" type="tns:Comment">
+            <xs:annotation>
+               <xs:documentation>
+Comments relating to the Contents coverage
+               </xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AttachedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element minOccurs="0" name="TerminatedDateTime" type="tns:EnterpriseDateTime"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="Excess" type="tns:PropertyExcess"/>
+      </xs:sequence>
+   </xs:complexType>
+      <xs:simpleType name="VehicleNoClaimBonusEnum">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="Driver"/>
+         <xs:enumeration value="Other"/>
+         <xs:enumeration value="Vehicle"/>
+      </xs:restriction>
+   </xs:simpleType>
+      <xs:complexType name="DriverRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="PolicyholderRoleSearchCriteria">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRoleSearchCriteria">
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+      <xs:complexType name="BranchRole">
+      <xs:complexContent>
+         <xs:extension base="tns:PartyRole">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="AccountingPeriod" type="xs:string">
+                  <xs:annotation>
+                     <xs:documentation>
+ MMMYYYY eg Jan 2010
+                     </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+    </xsd:schema>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cgu/common/v1" xmlns:bons0="http://cgu/common/v1">
+      <xsd:complexType name="MessageHeader">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="correlationId" type="xsd:string">
+			</xsd:element>
+
+			<xsd:element minOccurs="0" name="retryCount" type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="maxRetryCount" type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="timeout" type="xsd:int"/>
+			<xsd:element minOccurs="0" name="priority" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="destination" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="replyToDestination" type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xsd:element name="enterpriseHeader" type="bons0:EnterpriseHeader"/>
+      <xsd:complexType mixed="false" name="EnterpriseHeader">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" name="user" type="bons0:User"/>
+			<xsd:element minOccurs="1" name="system" type="bons0:System"/>
+			<xsd:element minOccurs="0" name="messageHeader" type="bons0:MessageHeader"/>
+			<xsd:element minOccurs="1" name="transaction" type="bons0:Transaction"/>
+			<xsd:element minOccurs="0" name="parentServiceName" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="parentOperationName" type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xsd:complexType name="Transaction">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="globalTransactionId" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="consumerTransactionId" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="serviceName" type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xsd:complexType name="System">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" name="systemId" type="xsd:string">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+      <xsd:complexType name="User">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="name" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="userId" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="userIdContext" type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+    </xsd:schema>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cgu/common/fault/business/v1" xmlns:Q1="http://cgu/common/fault/v1" xmlns:Q11="http://cgu/common/fault/business/v1" xmlns:Q12="http://cgu/common/fault/business/v1" xmlns:Q13="http://cgu/common/fault/business/v1" xmlns:bons0="http://cgu/common/fault/business/v1">
+      <xsd:import namespace="http://cgu/common/fault/v1"/>
+      <xsd:complexType name="BusinessFault">
+    <xsd:complexContent>
+      <xsd:extension base="Q1:GenericFault">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+      <xsd:complexType name="ProviderUnavailableFault">
+		<xsd:complexContent>
+			<xsd:extension base="bons0:BusinessFault">
+				<xsd:sequence/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+      <xsd:complexType name="InvalidPolicyNumberFault">
+    <xsd:complexContent>
+      <xsd:extension base="Q11:BusinessFault">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+      <xsd:complexType name="InsufficientSearchCriteriaFault">
+    <xsd:complexContent>
+      <xsd:extension base="Q12:BusinessFault">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+      <xsd:complexType name="InvalidConsumerFault">
+    <xsd:complexContent>
+      <xsd:extension base="Q13:BusinessFault">
+        <xsd:sequence/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+    </xsd:schema>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cgu/common/fault/v1" xmlns:Q1="http://cgu/common/fault/v1" xmlns:bons0="http://cgu/common/v1">
+      <xsd:import namespace="http://cgu/common/v1"/>
+      <xsd:complexType name="GenericFault">
+		<xsd:complexContent>
+			<xsd:extension base="Q1:GenericFaultContents">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="faultHeader" type="bons0:EnterpriseHeader">
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="subErrors" type="Q1:GenericFault">
+					</xsd:element>
+				</xsd:sequence>
+
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+      <xsd:complexType name="GenericFaultContents">
+		<xsd:sequence>
+
+			<xsd:element minOccurs="1" name="name" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="message" type="xsd:string">
+			</xsd:element>
+			<xsd:element default="Error" minOccurs="0" name="severity">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Warning"/>
+						<xsd:enumeration value="Error"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+    </xsd:schema>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cgu/common/fault/technical/v1" xmlns:Q1="http://cgu/common/fault/v1" xmlns:bons0="http://cgu/common/fault/technical/v1">
+      <xsd:import namespace="http://cgu/common/fault/v1"/>
+      <xsd:complexType name="TechnicalFault">
+		<xsd:complexContent>
+			<xsd:extension base="Q1:GenericFault">
+
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="payload" type="xsd:string">
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+      <xsd:complexType name="RuntimeFault">
+		<xsd:complexContent>
+			<xsd:extension base="bons0:TechnicalFault">
+
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+    </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="retrieveInsurancePoliciesRequestMsg">
+    <wsdl:part element="tns:retrieveInsurancePolicies" name="retrieveInsurancePoliciesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="retrieveInsurancePoliciesResponseMsg">
+    <wsdl:part element="tns:retrieveInsurancePoliciesResponse" name="retrieveInsurancePoliciesResult"/>
+  </wsdl:message>
+    <wsdl:message name="runtimeFaultMsg">
+    <wsdl:part element="tns:runtimeFault" name="runtimeFault"/>
+  </wsdl:message>
+    <wsdl:message name="providerUnavailableFaultMsg">
+    <wsdl:part element="tns:providerUnavailableFault" name="providerUnavailableFault"/>
+  </wsdl:message>
+    <wsdl:message name="invalidConsumerFaultMsg">
+    <wsdl:part element="tns:invalidConsumerFault" name="invalidConsumerFault"/>
+  </wsdl:message>
+    <wsdl:message name="retrieveInsurancePolicies_insufficientSearchCriteriaFaultMsg">
+    <wsdl:part element="tns:retrieveInsurancePoliciesFault4_insufficientSearchCriteriaFault" name="insufficientSearchCriteriaFault"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetailsRequestMsg">
+    <wsdl:part element="tns:retrievePolicyDetails" name="retrievePolicyDetailsParameters1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetailsResponseMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsResponse" name="retrievePolicyDetailsResult1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetails_runtimeFaultMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsFault1_runtimeFault" name="runtimeFault1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetails_providerUnavailableFaultMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsFault2_providerUnavailableFault" name="providerUnavailableFault1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetails_invalidConsumerFaultMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsFault3_invalidConsumerFault" name="invalidConsumerFault1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetails_invalidPolicyNumberFaultMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsFault4_invalidPolicyNumberFault" name="invalidPolicyNumberFault1"/>
+  </wsdl:message>
+    <wsdl:message name="retrievePolicyDetails_insufficientSearchCriteriaFaultMsg">
+    <wsdl:part element="tns:retrievePolicyDetailsFault5_insufficientSearchCriteriaFault" name="insufficientSearchCriteriaFault1"/>
+  </wsdl:message>
+    <wsdl:portType name="PolicyInquiry">
+    <wsdl:operation name="retrieveInsurancePolicies">
+      <wsdl:input message="tns:retrieveInsurancePoliciesRequestMsg" name="retrieveInsurancePoliciesRequest"/>
+      <wsdl:output message="tns:retrieveInsurancePoliciesResponseMsg" name="retrieveInsurancePoliciesResponse"/>
+      <wsdl:fault message="tns:runtimeFaultMsg" name="runtimeFault"/>
+      <wsdl:fault message="tns:providerUnavailableFaultMsg" name="providerUnavailableFault"/>
+            <wsdl:fault message="tns:invalidConsumerFaultMsg" name="invalidConsumerFault"/>
+            <wsdl:fault message="tns:retrieveInsurancePolicies_insufficientSearchCriteriaFaultMsg" name="insufficientSearchCriteriaFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrievePolicyDetails">
+      <wsdl:input message="tns:retrievePolicyDetailsRequestMsg" name="retrievePolicyDetailsRequest"/>
+      <wsdl:output message="tns:retrievePolicyDetailsResponseMsg" name="retrievePolicyDetailsResponse"/>
+      <wsdl:fault message="tns:retrievePolicyDetails_invalidPolicyNumberFaultMsg" name="invalidPolicyNumberFault"/>
+      <wsdl:fault message="tns:retrievePolicyDetails_providerUnavailableFaultMsg" name="providerUnavailableFault"/>
+      <wsdl:fault message="tns:retrievePolicyDetails_invalidConsumerFaultMsg" name="invalidConsumerFault"/>
+      <wsdl:fault message="tns:retrievePolicyDetails_insufficientSearchCriteriaFaultMsg" name="insufficientSearchCriteriaFault"/>
+      <wsdl:fault message="tns:retrievePolicyDetails_runtimeFaultMsg" name="runtimeFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EA_PolicyInquiry_WS_PolicyInquiryHttpBinding" type="tns:PolicyInquiry">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="retrieveInsurancePolicies">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="retrieveInsurancePoliciesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveInsurancePoliciesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="runtimeFault">
+        <soap:fault name="runtimeFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="providerUnavailableFault">
+        <soap:fault name="providerUnavailableFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="invalidConsumerFault">
+        <soap:fault name="invalidConsumerFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="insufficientSearchCriteriaFault">
+        <soap:fault name="insufficientSearchCriteriaFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+        <wsdl:operation name="retrievePolicyDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="retrievePolicyDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrievePolicyDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="runtimeFault">
+        <soap:fault name="runtimeFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="providerUnavailableFault">
+        <soap:fault name="providerUnavailableFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="invalidConsumerFault">
+        <soap:fault name="invalidConsumerFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="invalidPolicyNumberFault">
+        <soap:fault name="invalidPolicyNumberFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+    <wsdl:service name="EA_PolicyInquiry_WS_PolicyInquiryHttpService">
+    <wsdl:port binding="tns:EA_PolicyInquiry_WS_PolicyInquiryHttpBinding" name="EA_PolicyInquiry_WS_PolicyInquiryHttpPort">
+      <soap:address location="http://localhost:9080/EA_PolicyInquiry_v1_0_0Web/sca/EA_PolicyInquiry_WS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
