@@ -1,8 +1,5 @@
 package com.cgu.client;
 
-
-import com.cgu.service.PolicyInquiry;
-
 /**
  * Client Executable, main class to execute the service as a standalone.
  * 
