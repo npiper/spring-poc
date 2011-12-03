@@ -1,7 +1,5 @@
 package com.cgu.client;
 
-import org.apache.tuscany.sca.host.embedded.SCADomain;
-import org.apache.tuscany.sca.host.embedded.SCADomainBean;
 
 import com.cgu.service.PolicyInquiry;
 
@@ -21,8 +19,8 @@ public class PolicyInquiryClient
      */
     public static void main(String[] args) throws Exception
     {
-        SCADomain scaDomain = SCADomainBean.newInstance("PolicyInquiry.composite");
-        scaDomain.getService(PolicyInquiry.class, "PolicyInquiryService");
+       // SCADomain scaDomain = SCADomainBean.newInstance("PolicyInquiry.composite");
+       // scaDomain.getService(PolicyInquiry.class, "PolicyInquiryService");
         // //scaDomain scaDomain = SCADomain.newInstance("PolicyInquiry.sca");
         // PolicyInquiry policyInquiryService = scaDomain.getService(
         // PolicyInquiry.class, "");
