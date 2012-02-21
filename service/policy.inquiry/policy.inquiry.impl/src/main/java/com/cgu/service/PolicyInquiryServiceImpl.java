@@ -5,8 +5,6 @@ import PolicyInquiryV1.RetrieveInsurancePoliciesResp;
 import PolicyInquiryV1.RetrievePolicyDetailsReq;
 import PolicyInquiryV1.RetrievePolicyDetailsResp;
 import dataservice.policyinquirytopmscache.v1.PolicyInquiryToPMSCacheV1;
-import dataservice.policyinquirytopmscache.v1.PolicyInquiryToPMSCacheV1SDO;
-
 
 /**
  * Implementation of PolicyInquiry.
@@ -16,17 +14,15 @@ import dataservice.policyinquirytopmscache.v1.PolicyInquiryToPMSCacheV1SDO;
  */
 public class PolicyInquiryServiceImpl implements PolicyInquiry
 {
-    /**  {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     @Override
     public RetrievePolicyDetailsResp retrievePolicyDetails(
             RetrievePolicyDetailsReq request)
     {
-                
         // Route to DXSI
         PolicyInquiryToPMSCacheV1 service = new PolicyInquiryToPMSCacheV1();
-        
-        
         return service.retrievePolicyDetails(request);
     }
 
@@ -39,10 +35,10 @@ public class PolicyInquiryServiceImpl implements PolicyInquiry
             RetrieveInsurancePoliciesReq request)
     {
         PolicyInquiryToPMSCacheV1 service = new PolicyInquiryToPMSCacheV1();
-        RetrieveInsurancePoliciesResp resp = service.retrieveInsurancePolicies(request);
+        RetrieveInsurancePoliciesResp resp = service
+                .retrieveInsurancePolicies(request);
         resp.getXml();
         service.getLastRuntimeReport().getXml();
         return resp;
-       
     }
 }
