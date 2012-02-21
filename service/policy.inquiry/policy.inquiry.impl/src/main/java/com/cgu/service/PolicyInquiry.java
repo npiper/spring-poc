@@ -1,9 +1,10 @@
 package com.cgu.service;
 
-import legacy.cim.cmm.v1.custom.RetrieveInsurancePoliciesRequest;
-import legacy.cim.cmm.v1.custom.RetrieveInsurancePoliciesResponse;
-import legacy.cim.cmm.v1.custom.RetrievePolicyDetailsRequest;
-import legacy.cim.cmm.v1.custom.RetrievePolicyDetailsResponse;
+import PolicyInquiryV1.RetrieveInsurancePoliciesReq;
+import PolicyInquiryV1.RetrieveInsurancePoliciesResp;
+import PolicyInquiryV1.RetrievePolicyDetailsReq;
+import PolicyInquiryV1.RetrievePolicyDetailsResp;
+
 
 /**
  * POJO Interface for Policy Inquiries.
@@ -19,8 +20,8 @@ public interface PolicyInquiry
      * @param request details request
      * @return policy details response.
      */
-    public RetrievePolicyDetailsResponse retrievePolicyDetails(
-            RetrievePolicyDetailsRequest request);
+    public RetrievePolicyDetailsResp retrievePolicyDetails(
+            RetrievePolicyDetailsReq request);
 
     /**
      * Retrieves a set of Insurance Policies based on a search request.
@@ -28,6 +29,6 @@ public interface PolicyInquiry
      * @param request search request
      * @return search response
      */
-    public RetrieveInsurancePoliciesResponse retrieveInsurancePolicies(
-            RetrieveInsurancePoliciesRequest request);
+    public RetrieveInsurancePoliciesResp retrieveInsurancePolicies(
+            RetrieveInsurancePoliciesReq request);
 }

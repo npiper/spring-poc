@@ -1,9 +1,12 @@
 package com.cgu.service;
 
-import legacy.cim.cmm.v1.custom.RetrieveInsurancePoliciesRequest;
-import legacy.cim.cmm.v1.custom.RetrieveInsurancePoliciesResponse;
-import legacy.cim.cmm.v1.custom.RetrievePolicyDetailsRequest;
-import legacy.cim.cmm.v1.custom.RetrievePolicyDetailsResponse;
+import PolicyInquiryV1.RetrieveInsurancePoliciesReq;
+import PolicyInquiryV1.RetrieveInsurancePoliciesResp;
+import PolicyInquiryV1.RetrievePolicyDetailsReq;
+import PolicyInquiryV1.RetrievePolicyDetailsResp;
+import dataservice.policyinquirytopmscache.v1.PolicyInquiryToPMSCacheV1;
+import dataservice.policyinquirytopmscache.v1.PolicyInquiryToPMSCacheV1SDO;
+
 
 /**
  * Implementation of PolicyInquiry.
@@ -16,13 +19,15 @@ public class PolicyInquiryServiceImpl implements PolicyInquiry
     /**  {@inheritDoc}
      */
     @Override
-    public RetrievePolicyDetailsResponse retrievePolicyDetails(
-            RetrievePolicyDetailsRequest request)
+    public RetrievePolicyDetailsResp retrievePolicyDetails(
+            RetrievePolicyDetailsReq request)
     {
                 
         // Route to DXSI
+        PolicyInquiryToPMSCacheV1 service = new PolicyInquiryToPMSCacheV1();
         
-        return null;
+        
+        return service.retrievePolicyDetails(request);
     }
 
     /**
@@ -30,10 +35,14 @@ public class PolicyInquiryServiceImpl implements PolicyInquiry
      * 
      */
     @Override
-    public RetrieveInsurancePoliciesResponse retrieveInsurancePolicies(
-            RetrieveInsurancePoliciesRequest request)
+    public RetrieveInsurancePoliciesResp retrieveInsurancePolicies(
+            RetrieveInsurancePoliciesReq request)
     {
-        // TODO Auto-generated method stub
-        return null;
+        PolicyInquiryToPMSCacheV1 service = new PolicyInquiryToPMSCacheV1();
+        RetrieveInsurancePoliciesResp resp = service.retrieveInsurancePolicies(request);
+        resp.getXml();
+        service.getLastRuntimeReport().getXml();
+        return resp;
+       
     }
 }
