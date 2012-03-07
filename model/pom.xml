@@ -7,5 +7,6 @@
 
   <modules>
     <module>cgu</module>
+    <module>dxsitelco</module>
   </modules>
 </project>

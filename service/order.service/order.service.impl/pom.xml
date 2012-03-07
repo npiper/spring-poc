@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cgu.service</groupId>
+	<artifactId>order.service.impl</artifactId>
+	<name>order.service.impl</name>
+	<parent>
+	 <groupId>com.cgu.icc</groupId>
+  <artifactId>service.parent</artifactId>
+  <version>1.0</version>
+	</parent>
+	<packaging>jar</packaging>
+	<dependencies>
+	
+         <dependency>
+         <groupId>com.cgu.icc</groupId>
+	   <artifactId>model.dxsitelco</artifactId>
+  <version>1.0</version>
+         </dependency>
+            
+	</dependencies>
+	
+	<!-- Spring & SCA , Tuscany
+	http://www.ibm.com/developerworks/webservices/library/os-springsca1/index.html  
+	http://www.ibm.com/developerworks/opensource/library/os-springsca2/index.html
+	-->
+	
+</project>

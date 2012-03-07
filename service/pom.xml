@@ -8,6 +8,7 @@
 		<module>parent</module>
 		<module>interface</module>
 		<module>policy.inquiry</module>
+                <module>order.service</module>
 	</modules>
 
 
